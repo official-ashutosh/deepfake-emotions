@@ -1,0 +1,29 @@
+{
+  "global_eer": 0.0,
+  "threshold": 0.39522242546081543,
+  "ci_95": [
+    0.0,
+    0.0
+  ],
+  "n_bonafide": 76,
+  "n_spoof": 625,
+  "per_emotion": {
+    "neutral": 0.0,
+    "happy": 0.0,
+    "angry": 0.0,
+    "sad": 0.0,
+    "surprise": 0.0
+  },
+  "emotion_stats": {
+    "mean": 0.0,
+    "range": 0.0,
+    "sigma": 0.0
+  },
+  "per_system": {
+    "S3": 0.0,
+    "S4": 0.0,
+    "S5": 0.0,
+    "S6": 0.0,
+    "S7": 0.0
+  }
+}

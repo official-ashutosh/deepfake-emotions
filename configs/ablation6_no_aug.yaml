@@ -1,0 +1,33 @@
+# Config: Ablation 6 - Augmentation OFF
+architecture: proposed_cnn_bilstm
+seed: 42
+output_dir: runs/ablation6_no_aug
+
+model:
+  in_channels: 3
+  fusion_strategy: concat
+  embedding_dim: 128
+  lstm_hidden: 128
+  dropout: 0.3
+  use_grl: true
+  lambda_val: 0.5
+  num_emotions: 5
+
+data:
+  manifest_path: data/manifest.csv
+  feature_type: combined
+  normalize_features: true
+  balanced_batch: true
+  aug_noise: false
+  aug_gain: false
+  aug_codec: false
+  aug_rawboost: false
+
+train:
+  phase: phase2
+  epochs: 25
+  batch_size: 16
+  lr: 0.001
+  weight_decay: 0.0001
+  schedule_lambda: true
+  lambda_max: 0.5

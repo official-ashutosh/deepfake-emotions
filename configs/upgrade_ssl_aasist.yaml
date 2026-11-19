@@ -1,0 +1,30 @@
+# Config: Upgrade Model B - SSL Front End + AASIST GAT Backend + Dual Heads + GRL
+architecture: ssl_aasist
+seed: 42
+output_dir: runs/upgrade_ssl_aasist
+
+model:
+  ssl_model_name: native
+  freeze_ssl: false
+  embedding_dim: 128
+  gat_hidden: 64
+  dropout: 0.3
+  use_grl: true
+  lambda_val: 0.5
+  num_emotions: 5
+
+data:
+  manifest_path: data/manifest.csv
+  balanced_batch: true
+  aug_noise: true
+  aug_gain: true
+  aug_codec: true
+
+train:
+  phase: phase2
+  epochs: 25
+  batch_size: 16
+  lr: 0.0005
+  weight_decay: 0.0001
+  schedule_lambda: true
+  lambda_max: 0.5

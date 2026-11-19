@@ -1,0 +1,37 @@
+# Config: Proposed CNN-BiLSTM with Scheduled GRL (Main Proposed Model)
+# Optimized for RTX 4060 (8GB VRAM)
+architecture: proposed_cnn_bilstm
+seed: 42
+output_dir: runs/proposed_grl_scheduled
+
+model:
+  in_channels: 3
+  fusion_strategy: concat
+  embedding_dim: 128
+  lstm_hidden: 128
+  dropout: 0.3
+  use_grl: true
+  lambda_val: 1.0
+  num_emotions: 5
+
+data:
+  manifest_path: data/manifest_emofake.csv
+  feature_type: combined
+  normalize_features: false
+  balanced_batch: true
+  aug_noise: true
+  aug_gain: true
+  aug_codec: true
+  aug_rawboost: false
+
+train:
+  phase: phase2
+  epochs: 20
+  batch_size: 32
+  lr: 0.001
+  weight_decay: 0.0001
+  schedule_lambda: true
+  lambda_max: 0.5
+  patience: 6
+  warmup_epochs: 2
+  grad_clip: 1.0

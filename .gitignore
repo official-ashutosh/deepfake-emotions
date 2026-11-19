@@ -1,0 +1,66 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+env/
+venv/
+ENV/
+
+# Audio and Dataset files
+*.wav
+*.flac
+*.mp3
+*.m4a
+*.part
+data/smoke_dataset/
+data/emofake_download/
+data/emofake/
+data/asvspoof/
+data/*.csv
+data_cache/
+
+# PyTorch / checkpoints / large models
+*.pth
+*.pt
+*.bin
+*.tar.gz
+*.zip
+*.pkl
+runs/
+checkpoints/
+
+# External cloned repos (keep code clean)
+external/
+
+# TensorBoard & logs
+events.out.tfevents.*
+*.log
+.pytest_cache/
+
+# OS generated
+.DS_Store
+Thumbs.db

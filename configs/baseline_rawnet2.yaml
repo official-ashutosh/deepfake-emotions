@@ -1,0 +1,20 @@
+# Config: Baseline RawNet2
+architecture: rawnet2
+seed: 42
+output_dir: runs/baseline_rawnet2
+
+data:
+  manifest_path: data/manifest.csv
+  balanced_batch: false
+  aug_noise: false
+  aug_gain: false
+  aug_codec: false
+
+train:
+  phase: phase1
+  epochs: 25
+  batch_size: 16
+  lr: 0.0001
+  weight_decay: 0.0001
+  schedule_lambda: false
+  lambda_max: 0.0

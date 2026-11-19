@@ -1,0 +1,32 @@
+# Config: Ablation 4 - Single Stream Log-Mel Only
+architecture: proposed_cnn_bilstm
+seed: 42
+output_dir: runs/ablation4_mel_only
+
+model:
+  in_channels: 1
+  fusion_strategy: concat
+  embedding_dim: 128
+  lstm_hidden: 128
+  dropout: 0.3
+  use_grl: true
+  lambda_val: 0.5
+  num_emotions: 5
+
+data:
+  manifest_path: data/manifest.csv
+  feature_type: mel_only
+  normalize_features: true
+  balanced_batch: true
+  aug_noise: true
+  aug_gain: true
+  aug_codec: true
+
+train:
+  phase: phase2
+  epochs: 25
+  batch_size: 16
+  lr: 0.001
+  weight_decay: 0.0001
+  schedule_lambda: true
+  lambda_max: 0.5

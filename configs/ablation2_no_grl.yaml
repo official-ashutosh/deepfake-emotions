@@ -1,0 +1,34 @@
+# Ablation 2: Emotion head without GRL (no gradient reversal)
+architecture: proposed_cnn_bilstm
+seed: 42
+output_dir: runs/ablation2_no_grl
+
+model:
+  in_channels: 3
+  fusion_strategy: concat
+  embedding_dim: 128
+  lstm_hidden: 128
+  dropout: 0.3
+  use_grl: false
+  lambda_val: 0.0
+  num_emotions: 5
+
+data:
+  manifest_path: data/manifest_emofake.csv
+  feature_type: combined
+  normalize_features: false
+  balanced_batch: true
+  aug_noise: true
+  aug_gain: true
+  aug_codec: true
+
+train:
+  phase: phase2
+  epochs: 20
+  batch_size: 32
+  lr: 0.001
+  weight_decay: 0.0001
+  schedule_lambda: false
+  lambda_max: 0.0
+  patience: 6
+  warmup_epochs: 2

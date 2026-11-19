@@ -1,0 +1,11 @@
+Experiment,Architecture,Features,Use GRL,Lambda Max,Augmentation,Global EER (%),EER 95% CI,Emotion Mean EER (%),Emotion Sigma (%),Emotion Range (%),Probe Accuracy (%),EER_Neutral (%),EER_Happy (%),EER_Angry (%),EER_Sad (%),EER_Surprise (%)
+Baseline: Pretrained AASIST (clovaai),aasist,raw,False,0.0,False,46.066315789473684,"[39.34, 51.18]",46.79398268398268,15.455685774317683,42.46666666666666,N/A,29.4,71.86666666666666,56.97142857142856,37.55,38.18181818181819
+Ablation 1: No Emotion Supervision,proposed_cnn_bilstm,combined,False,0.0,True,0.0,"[0.00, 0.00]",0.0,0.0,0.0,58.48787446504993,0.0,0.0,0.0,0.0,0.0
+Ablation 2: Multi-task without GRL,proposed_cnn_bilstm,combined,False,1.0,True,0.0,"[0.00, 0.00]",0.0,0.0,0.0,55.777460770328105,0.0,0.0,0.0,0.0,0.0
+Proposed: GRL Scheduled (lambda=0.5),proposed_cnn_bilstm,combined,True,0.5,True,0.0,"[0.00, 0.00]",0.0,0.0,0.0,56.06276747503567,0.0,0.0,0.0,0.0,0.0
+Proposed: GRL Fixed (lambda=0.5),proposed_cnn_bilstm,combined,True,0.5,True,0.0,"[0.00, 0.00]",0.0,0.0,0.0,58.91583452211127,0.0,0.0,0.0,0.0,0.0
+Ablation 4: Mel Spectrogram Only,proposed_cnn_bilstm,mel_only,True,0.5,True,0.0,"[0.00, 0.00]",0.0,0.0,0.0,56.63338088445078,0.0,0.0,0.0,0.0,0.0
+Ablation 4: MFCC Only,proposed_cnn_bilstm,mfcc_only,True,0.5,True,0.0,"[0.00, 0.00]",0.0,0.0,0.0,53.92296718972895,0.0,0.0,0.0,0.0,0.0
+Ablation 6: No Augmentation,proposed_cnn_bilstm,combined,True,0.5,False,0.0,"[0.00, 0.00]",0.0,0.0,0.0,55.49215406562055,0.0,0.0,0.0,0.0,0.0
+Baseline: RawNet2,rawnet2,raw,False,0.0,False,0.0,"[0.00, 0.00]",0.0,0.0,0.0,21.96861626248217,0.0,0.0,0.0,0.0,0.0
+Upgrade: SSL-AASIST + GRL,ssl_aasist,raw,True,0.5,True,0.0,"[0.00, 0.00]",0.0,0.0,0.0,57.77460770328102,0.0,0.0,0.0,0.0,0.0
