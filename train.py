@@ -265,6 +265,7 @@ def run_training(config: Dict[str, Any], output_dir: Path, seed: int = 42) -> Di
     warmup_epochs = int(t_cfg.get("warmup_epochs", 3))
 
     best_combined_score = float("inf")
+    best_train_spoof_loss = float("inf")
     best_metrics = {}
     history = []
     no_improve_count = 0
@@ -322,8 +323,16 @@ def run_training(config: Dict[str, Any], output_dir: Path, seed: int = 42) -> Di
               f"Dev EER: {dev_eer:.2f}% | Dev Sigma: {dev_sigma:.2f}% | Combined: {combined_score:.2f}%", flush=True)
 
         # Save best model
+        improved = False
         if combined_score < best_combined_score:
+            improved = True
             best_combined_score = combined_score
+            best_train_spoof_loss = train_res["loss_spoof"]
+        elif abs(combined_score - best_combined_score) < 1e-5 and train_res["loss_spoof"] < best_train_spoof_loss:
+            improved = True
+            best_train_spoof_loss = train_res["loss_spoof"]
+
+        if improved:
             best_metrics = dev_res
             no_improve_count = 0
             torch.save({
@@ -334,7 +343,7 @@ def run_training(config: Dict[str, Any], output_dir: Path, seed: int = 42) -> Di
                 "dev_metrics": dev_res,
                 "norm_stats": norm_stats
             }, output_dir / "best.pt")
-            print(f"  * New best model saved (Combined Score: {best_combined_score:.2f}%)")
+            print(f"  * New best model saved (Combined Score: {best_combined_score:.2f}%, Spoof Loss: {best_train_spoof_loss:.4f})")
         else:
             no_improve_count += 1
             if no_improve_count >= patience and epoch > warmup_epochs:
