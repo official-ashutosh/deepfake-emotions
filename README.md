@@ -245,15 +245,17 @@ Evaluated across **20,030 test utterances** (14,000 fakes from unseen systems S3
 | **Ablation 1 (No Emotion Head)** | 7.20% | [6.85%, 7.53%] | 7.10% | 2.53% | 6.07% | N/A |
 | **Ablation 2 (Emotion Head, No GRL)** | 10.68% | [10.23%, 11.09%] | 9.52% | 3.87% | 9.02% | 42.01% |
 | **Proposed Model (Scheduled GRL, $\lambda_{\max}=0.5$)** | 7.56% | [7.22%, 7.89%] | 6.89% | 2.99% | 6.84% | **32.66%** |
-| **Proposed Model (Fixed GRL, $\lambda=0.5$)** | **7.25%** | [6.90%, 7.61%] | **6.01%** | **2.15%** | **5.37%** | **32.91%** |
+| **Proposed Model (Fixed GRL, $\lambda=0.5$)** | 7.25% | [6.90%, 7.61%] | 6.01% | **2.15%** | **5.37%** | 32.91% |
+| **Proposed Model (Advanced GRL + RawBoost)** | **4.35%** | **[4.00%, 4.68%]** | **4.90%** | 2.30% | 5.75% | **30.35%** |
 
 #### Per-Emotion Error Vulnerability & Invariance
 | Model | Neutral | Happy | Angry | Surprise | Emotion Range (Max - Min) |
 |---|:---:|:---:|:---:|:---:|:---:|
 | **Ablation 1 (No Emotion Head)** | 4.97% | 8.72% | 4.31% | 10.38% | 6.07% |
 | **Ablation 2 (Emotion Head, No GRL)** | 6.66% | 12.80% | 4.80% | 13.83% | 9.02% |
-| **Proposed Model (Scheduled GRL)** | **3.70%** | 9.13% | 4.21% | 10.53% | 6.84% |
-| **Proposed Model (Fixed GRL)** | 4.28% | **6.76%** | **3.81%** | **9.18%** | **5.37%** |
+| **Proposed Model (Scheduled GRL)** | 3.70% | 9.13% | 4.21% | 10.53% | 6.84% |
+| **Proposed Model (Fixed GRL)** | 4.28% | 6.76% | 3.81% | 9.18% | **5.37%** |
+| **Proposed Model (Advanced GRL + RawBoost)** | **3.46%** | **4.28%** | **3.06%** | **8.81%** | 5.75% |
 
 #### Generalization to Unseen Conversion Systems (S3–S7)
 | Model | S3 (StarGAN-v2) | S4 (CycleGAN-VC3) | S5 (Blow) | S6 (QuickVC) | S7 (DDDM-VC) |
@@ -262,10 +264,11 @@ Evaluated across **20,030 test utterances** (14,000 fakes from unseen systems S3
 | **Ablation 2 (Emotion Head, No GRL)** | 19.17% | 8.14% | 9.21% | 5.93% | 9.39% |
 | **Proposed Model (Scheduled GRL)** | 20.21% | 3.90% | 1.29% | 2.47% | 2.93% |
 | **Proposed Model (Fixed GRL)** | **17.36%** | 3.90% | 1.71% | 2.82% | 5.25% |
+| **Proposed Model (Advanced GRL + RawBoost)** | 19.82% | **0.97%** | **0.32%** | **0.71%** | **1.82%** |
 
 #### Emotion Probe Invariance Verification
 - **Ablation 2 (without GRL)**: Linear emotion probe achieves **42.01%** accuracy (more than double the ~20% random chance level), confirming that the latent space $z$ strongly retains paralinguistic emotion cues when no adversarial mechanism is applied.
-- **Proposed Models (with GRL)**: Adversarial domain adaptation forces probe accuracy down to **32.66%** (Scheduled GRL) and **32.91%** (Fixed GRL), proving that the encoder actively unlearns emotion representations while preserving spoof artifacts.
+- **Proposed Models (with GRL)**: Adversarial domain adaptation forces probe accuracy down to **30.35%** (Advanced GRL + RawBoost), **32.66%** (Scheduled GRL), and **32.91%** (Fixed GRL), proving that the encoder actively unlearns emotion representations while preserving spoof artifacts.
 
 ---
 
