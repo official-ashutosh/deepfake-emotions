@@ -3,3 +3,4 @@ Ablation 1 (No Emotion Head),19.29%,2.32%,1.14%,1.75%,5.47%
 "Ablation 2 (Emotion Head, No GRL)",19.17%,8.14%,9.21%,5.93%,9.39%
 "Proposed Model (Scheduled GRL, lambda_max=0.5)",20.21%,3.90%,1.29%,2.47%,2.93%
 "Proposed Model (Fixed GRL, lambda=0.5)",17.36%,3.90%,1.71%,2.82%,5.25%
+Proposed Model (Advanced: Scheduled GRL + RawBoost),19.82%,0.97%,0.32%,0.71%,1.82%
