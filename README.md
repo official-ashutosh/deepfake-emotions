@@ -240,13 +240,13 @@ All 14 tests pass:
 
 Evaluated across **20,030 test utterances** (14,000 fakes from unseen systems S3–S7 + 6,030 bona fide) trained on the complete 53,900-sample dataset on an NVIDIA GeForce RTX 4060 GPU:
 
-| Architecture / Setting | Global EER (%) | 95% Bootstrap CI | Emotion Mean EER (%) | Emotion Dispersion $\sigma$ (%) | Emotion Range (%) | Linear Probe Accuracy (%) |
-|---|:---:|:---:|:---:|:---:|:---:|:---:|
-| **Ablation 1 (No Emotion Head)** | 7.20% | [6.85%, 7.53%] | 7.10% | 2.53% | 6.07% | N/A |
-| **Ablation 2 (Emotion Head, No GRL)** | 10.68% | [10.23%, 11.09%] | 9.52% | 3.87% | 9.02% | 42.01% |
-| **Proposed Model (Scheduled GRL, $\lambda_{\max}=0.5$)** | 7.56% | [7.22%, 7.89%] | 6.89% | 2.99% | 6.84% | **32.66%** |
-| **Proposed Model (Fixed GRL, $\lambda=0.5$)** | 7.25% | [6.90%, 7.61%] | 6.01% | **2.15%** | **5.37%** | 32.91% |
-| **Proposed Model (Advanced GRL + RawBoost)** | **4.35%** | **[4.00%, 4.68%]** | **4.90%** | 2.30% | 5.75% | **30.35%** |
+| Architecture / Setting | Detection Accuracy (%) | Global EER (%) | 95% Bootstrap CI | Emotion Mean EER (%) | Emotion Dispersion $\sigma$ (%) | Emotion Range (%) | Linear Probe Accuracy (%) |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| **Ablation 1 (No Emotion Head)** | 92.80% | 7.20% | [6.85%, 7.53%] | 7.10% | 2.53% | 6.07% | N/A |
+| **Ablation 2 (Emotion Head, No GRL)** | 89.32% | 10.68% | [10.23%, 11.09%] | 9.52% | 3.87% | 9.02% | 42.01% |
+| **Proposed Model (Scheduled GRL, $\lambda_{\max}=0.5$)** | 92.44% | 7.56% | [7.22%, 7.89%] | 6.89% | 2.99% | 6.84% | **32.66%** |
+| **Proposed Model (Fixed GRL, $\lambda=0.5$)** | 92.75% | 7.25% | [6.90%, 7.61%] | 6.01% | **2.15%** | **5.37%** | 32.91% |
+| **Proposed Model (Advanced GRL + RawBoost)** | **95.65%** | **4.35%** | **[4.00%, 4.68%]** | **4.90%** | 2.30% | 5.75% | **30.35%** |
 
 #### Per-Emotion Error Vulnerability & Invariance
 | Model | Neutral | Happy | Angry | Surprise | Emotion Range (Max - Min) |
